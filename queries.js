@@ -89,7 +89,7 @@ const getGeneros = (request, response) => {
   const deleteLibro = (request, response) => {
     const { libroid } = request.body
 
-    pool.query('DELETE FROM generos WHERE libroid = $1', [libroid], (error, results) => {
+    pool.query('DELETE FROM libros WHERE libroid = $1', [libroid], (error, results) => {
       if (error) {
         throw error
       }
