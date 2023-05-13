@@ -62,11 +62,11 @@ const getGeneros = (request, response) => {
   }
   
   const updateLibro = (request, response) => {
-    const { libroid, librotitulo , libroautor3, genero, portadalibro } = request.body
+    const { libroid, librotitulo , libroautor, genero, portadalibro } = request.body
   
     pool.query(
       'UPDATE libros SET  librotitulo = $2, libroautor=$3, genero=$4, portadalibro=$5 WHERE libroid = $1',
-      [ libroid, librotitulo , libroautor3, genero, portadalibro],
+      [ libroid, librotitulo , libroautor, genero, portadalibro],
       (error, results) => {
         if (error) {
           throw error
