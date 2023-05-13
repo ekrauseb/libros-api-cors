@@ -28,15 +28,6 @@ app.listen(port, () => {
     console.log(`App running on port ${port}.`)
   })
 
-//   getGeneros,
-//   getLibros,
-//   createGenero,
-//   createLibro,
-//   updateGenero,
-//   updateLibro,
-//   deleteGenero,
-//   deleteLibro
-
 
 app.get('/api/generos', db.getGeneros)
 app.get('/api/Libros', db.getLibros)
