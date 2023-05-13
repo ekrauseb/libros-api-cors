@@ -36,9 +36,9 @@ const getGeneros = (request, response) => {
     }
 
   const createLibro = (request, response) => {
-    const { librotitulo, libroautor, genero, portadalibro } = request.body
+    const { librotitulo, libroautor, genero } = request.body
   
-    pool.query('INSERT INTO libros (librotitulo, libroautor, genero, portadalibro) VALUES ($1,$2,$3,$4)', [librotitulo, libroautor, genero, portadalibro], (error, results) => {
+    pool.query('INSERT INTO libros (librotitulo, libroautor, genero) VALUES ($1,$2,$3)', [librotitulo, libroautor, genero], (error, results) => {
       if (error) {
         throw error
       }
@@ -50,8 +50,8 @@ const getGeneros = (request, response) => {
     const { generoid, generonombre } = request.body
   
     pool.query(
-      'UPDATE generos SET  generonombre = $2 WHERE generoid = $1',
-      [ generoid, generonombre],
+      'UPDATE generos SET  generonombre = $1 WHERE generoid = $2',
+      [generonombre, generoid],
       (error, results) => {
         if (error) {
           throw error
@@ -62,11 +62,11 @@ const getGeneros = (request, response) => {
   }
   
   const updateLibro = (request, response) => {
-    const { libroid, librotitulo , libroautor, genero, portadalibro } = request.body
+    const { libroid, librotitulo , libroautor, genero } = request.body
   
     pool.query(
-      'UPDATE libros SET  librotitulo = $2, libroautor=$3, genero=$4, portadalibro=$5 WHERE libroid = $1',
-      [ libroid, librotitulo , libroautor, genero, portadalibro],
+      'UPDATE libros SET  librotitulo = $2, libroautor=$3, genero=$4  WHERE libroid = $1',
+      [ libroid, librotitulo , libroautor, genero],
       (error, results) => {
         if (error) {
           throw error
